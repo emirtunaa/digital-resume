@@ -8,14 +8,14 @@ st.set_page_config(page_title = "Emir's Webpage", page_icon=":tada:", layout="wi
 st.subheader("Hi, I am Emir Tuna Korkmaz :wave:")
 st.title("A Mechanical Engineer from Istanbul/Turkey")
 
-"""
+
 #Use local CSS
-def local_css(file_name):
+def web_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-local_css("/Users/emirtuna/Desktop/apps/style/style.css")
-"""
+web_css("/digital-resume/style/style.css")
+
 
 def local_css(file_name):
     try:
@@ -32,15 +32,20 @@ def local_css(file_name):
 # Usage
 local_css("/Users/emirtuna/Desktop/apps/style/style.css")
 
-#Images
-bullet_image = Image.open("/Users/emirtuna/Desktop/apps/images/bullet1.jpeg")
-resume_pic = Image.open("/Users/emirtuna/Desktop/apps/images/resume.png")
 
+
+#Images
+l_bullet_image = Image.open("/Users/emirtuna/Desktop/apps/images/bullet1.jpeg")
+l_resume_pic = Image.open("/Users/emirtuna/Desktop/apps/images/resume.png")
+
+bullet_image = Image.open("/digital-resume/images/bullet1.jpeg")
+resume_pic = Image.open("/digital-resume/images/resume.png")
 
 # Header
 #with open("/Users/emirtuna/Desktop/cv.pdf", "rb") as file:
  #   resume_data = base64.b64encode(file.read()).decode()
-resume_path = "/Users/emirtuna/Desktop/cv.pdf"
+l_resume_path = "/Users/emirtuna/Desktop/cv.pdf"
+resume_path = "/digital-resume/cv.pdf"
 
 with st.container():
     st.write("---")
