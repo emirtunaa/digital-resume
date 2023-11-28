@@ -16,7 +16,7 @@ def web_css(file_name):
 
 web_css("style/style.css")
 
-
+"""
 def local_css(file_name):
     try:
         with open(file_name, 'r') as f:
@@ -31,7 +31,7 @@ def local_css(file_name):
 
 # Usage
 local_css("/Users/emirtuna/Desktop/apps/style/style.css")
-
+"""
 
 
 #Images
