@@ -31,7 +31,3 @@ button[type=submit]:hover {
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
-
-div[data-testid="stExpander"] div[role="region"] p {
-    font-size: 20rem;
-}
