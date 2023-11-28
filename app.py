@@ -3,28 +3,20 @@ from PIL import Image
 from streamlit.components.v1 import html
 import webbrowser
 import base64
-import requests
 
 st.set_page_config(page_title = "Emir's Webpage", page_icon=":tada:", layout="wide")
 st.subheader("Hi, I am Emir Tuna Korkmaz :wave:")
 st.title("A Mechanical Engineer from Istanbul/Turkey")
 
 
-#Use web CSS
-def web_css(file_path):
-    try:
-        response = requests.get(f'https://raw.githubusercontent.com/emirtunaa/digital-resume/main/{file_path}')
-        response.raise_for_status()  # Check for HTTP errors
-        css_content = response.text
-        st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
-    except requests.exceptions.RequestException as e:
-        st.error(f"Error fetching CSS file from GitHub: {e}")
+#Use local CSS
+def web_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Usage
 web_css("style/style.css")
 
 
-#Use local CSS
 def local_css(file_name):
     try:
         with open(file_name, 'r') as f:
