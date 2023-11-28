@@ -35,16 +35,15 @@ local_css("/Users/emirtuna/Desktop/apps/style/style.css")
 
 
 #Images
+"""
 l_bullet_image = Image.open("/Users/emirtuna/Desktop/apps/images/bullet1.jpeg")
 l_resume_pic = Image.open("/Users/emirtuna/Desktop/apps/images/resume.png")
-
+"""
 bullet_image = Image.open("images/bullet1.jpeg")
 resume_pic = Image.open("images/resume.png")
 
-# Header
-#with open("/Users/emirtuna/Desktop/cv.pdf", "rb") as file:
- #   resume_data = base64.b64encode(file.read()).decode()
-l_resume_path = "/Users/emirtuna/Desktop/cv.pdf"
+
+#l_resume_path = "/Users/emirtuna/Desktop/cv.pdf"
 resume_path = "cv.pdf"
 
 with st.container():
