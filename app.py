@@ -3,20 +3,28 @@ from PIL import Image
 from streamlit.components.v1 import html
 import webbrowser
 import base64
+import requests
 
 st.set_page_config(page_title = "Emir's Webpage", page_icon=":tada:", layout="wide")
 st.subheader("Hi, I am Emir Tuna Korkmaz :wave:")
 st.title("A Mechanical Engineer from Istanbul/Turkey")
 
 
+#Use web CSS
+def web_css(file_path):
+    try:
+        response = requests.get(f'https://raw.githubusercontent.com/emirtunaa/digital-resume/main/{file_path}')
+        response.raise_for_status()  # Check for HTTP errors
+        css_content = response.text
+        st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error fetching CSS file from GitHub: {e}")
+
+# Usage
+web_css("style/style.css")
+
+
 #Use local CSS
-def web_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-web_css("/digital-resume/style/style.css")
-
-
 def local_css(file_name):
     try:
         with open(file_name, 'r') as f:
@@ -38,14 +46,14 @@ local_css("/Users/emirtuna/Desktop/apps/style/style.css")
 l_bullet_image = Image.open("/Users/emirtuna/Desktop/apps/images/bullet1.jpeg")
 l_resume_pic = Image.open("/Users/emirtuna/Desktop/apps/images/resume.png")
 
-bullet_image = Image.open("/digital-resume/images/bullet1.jpeg")
-resume_pic = Image.open("/digital-resume/images/resume.png")
+bullet_image = Image.open("images/bullet1.jpeg")
+resume_pic = Image.open("images/resume.png")
 
 # Header
 #with open("/Users/emirtuna/Desktop/cv.pdf", "rb") as file:
  #   resume_data = base64.b64encode(file.read()).decode()
 l_resume_path = "/Users/emirtuna/Desktop/cv.pdf"
-resume_path = "/digital-resume/cv.pdf"
+resume_path = "cv.pdf"
 
 with st.container():
     st.write("---")
