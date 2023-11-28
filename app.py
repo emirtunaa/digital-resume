@@ -16,34 +16,14 @@ def web_css(file_name):
 
 web_css("style/style.css")
 
-"""
-def local_css(file_name):
-    try:
-        with open(file_name, 'r') as f:
-            css_content = f.read()
-            st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.error(f"Error: CSS file not found at {file_name}")
-    except Exception as e:
-        st.error(f"Error reading CSS file: {e}")
-        # Log additional information
-        st.error(f"Additional information: {str(e)}")
-
-# Usage
-local_css("/Users/emirtuna/Desktop/apps/style/style.css")
-"""
 
 
 #Images
-"""
-l_bullet_image = Image.open("/Users/emirtuna/Desktop/apps/images/bullet1.jpeg")
-l_resume_pic = Image.open("/Users/emirtuna/Desktop/apps/images/resume.png")
-"""
+
 bullet_image = Image.open("images/bullet1.jpeg")
 resume_pic = Image.open("images/resume.png")
 
-
-#l_resume_path = "/Users/emirtuna/Desktop/cv.pdf"
+# Header
 resume_path = "cv.pdf"
 
 with st.container():
