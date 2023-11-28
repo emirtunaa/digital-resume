@@ -8,14 +8,29 @@ st.set_page_config(page_title = "Emir's Webpage", page_icon=":tada:", layout="wi
 st.subheader("Hi, I am Emir Tuna Korkmaz :wave:")
 st.title("A Mechanical Engineer from Istanbul/Turkey")
 
-
+"""
 #Use local CSS
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("/Users/emirtuna/Desktop/apps/style/style.css")
+"""
 
+def local_css(file_name):
+    try:
+        with open(file_name, 'r') as f:
+            css_content = f.read()
+            st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.error(f"Error: CSS file not found at {file_name}")
+    except Exception as e:
+        st.error(f"Error reading CSS file: {e}")
+        # Log additional information
+        st.error(f"Additional information: {str(e)}")
+
+# Usage
+local_css("/Users/emirtuna/Desktop/apps/style/style.css")
 
 #Images
 bullet_image = Image.open("/Users/emirtuna/Desktop/apps/images/bullet1.jpeg")
